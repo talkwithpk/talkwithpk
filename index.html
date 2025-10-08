@@ -1,1 +1,467 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Talk With PK</title>
 
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --black: #0a0a0a;
+      --deep-black: #111111;
+      --soft-black: #1a1a1a;
+      --gold: #fcb900;
+      --gold-light: #ffe58a;
+      --text-muted: #c4c4c4;
+      --gradient-gold: linear-gradient(135deg, rgba(252, 185, 0, 1) 0%, rgba(255, 105, 0, 1) 100%);
+      --shadow-card: 0 8px 22px rgba(0,0,0,0.4);
+      --max-width: 1100px;
+ 
+    }
+
+
+    
+    body {
+      font-family: 'Poppins', 'Inter', sans-serif;
+      background: var(--black);
+      color: #fff;
+      font-size: 1rem;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+      color: var(--gold);
+    }
+
+    h1.section-title { font-size: 2.2rem; }   
+    h2.section-title { font-size: 1.8rem; } 
+    h5 { font-size: 1.1rem; font-weight: 500; color: var(--gold-light); }
+
+    p { color: var(--text-muted); }
+
+    /* NAVBAR */
+    .navbar-custom {
+      background: var(--deep-black);
+      box-shadow: 0 3px 10px rgba(0,0,0,0.6);
+    }
+    .navbar-custom .nav-link {
+      color: var(--text-muted) !important;
+      font-weight: 600;
+      margin: 0 6px;
+    }
+    .logo-pill {
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    /* INTRO */
+    .intro {
+      padding: 80px 0;
+      background: radial-gradient(circle at top left, #1a1a1a, #000000 70%);
+    }
+    .intro h1 { color: var(--gold); }
+    .intro p { color: var(--text-muted); }
+    .intro img {
+      border-radius: 18px;
+      box-shadow: var(--shadow-card);
+      transition: transform .35s;
+      max-width: 360px;
+      max-height: 420px;
+      object-fit: cover;
+      width: 100%;
+      height: auto;
+    }
+    .intro img:hover { 
+  transform: scale(1.05);
+box-shadow: 0 0 20px rgba(252, 185, 0, 0.8);;
+
+     }
+
+    /* ABOUT */
+    .about {
+      background: #141414;
+      padding: 60px 0;
+    }
+    .about img {
+      border-radius: 18px;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.6);
+      transition: all .35s ease;
+      max-width: 340px;
+      max-height: 400px;
+      object-fit: cover;
+      width: 100%;
+    }
+    .about img:hover {
+  transform: scale(1.05);
+box-shadow: 0 0 20px rgba(252, 185, 0, 0.3);
+
+    }
+
+    /* BOOKING */
+    .booking {
+      padding: 60px 0;
+      background: var(--black);
+    }
+    .booking img {
+      border-radius: 18px !important;
+      box-shadow: var(--shadow-card);
+      max-width: 380px;
+      max-height: 420px;
+      object-fit: cover;
+      width: 100%;
+      transition: transform .35s;
+    }
+    .booking img:hover { 
+  transform: scale(1.05);
+box-shadow: 0 0 20px rgba(252, 185, 0, 0.6);
+
+}
+
+    .price-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255,255,255,0.05);
+      padding: 10px 32px 10px 16px;
+      border-radius: 14px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    }
+    .btn-book {
+      background: var(--gradient-gold);
+      background-size: 200% 200%;
+      animation: gradientMove 6s ease infinite;
+      color: #111;
+      border: none;
+      border-radius: 50px;
+      padding: 14px 100px;
+      font-weight: 700;
+      box-shadow: 0 6px 16px rgba(252,185,0,0.3);
+      transition: transform .2s;
+    }
+    .btn-book:hover { transform: translateY(-4px); }
+
+
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* FEATURES */
+    .features {
+      padding: 48px 0;
+      background: #1d1d1d;
+    }
+    .feature-card {
+      text-align: center;
+      padding: 18px;
+      padding-top: 34px;
+      border-radius: 14px;
+      transition: transform .25s;
+      background: var(--black);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+    }
+    .feature-card:hover { transform: translateY(-6px); }
+    .feature-icon {
+      width: 72px; height: 72px;
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 12px;
+      background: rgba(252,185,0,0.1);
+    }
+    .feature-icon svg { width: 36px; height: 36px; stroke: var(--gold); }
+
+    /* Footer */
+    .footer {
+      color: var(--text-muted);
+      background: var(--black);
+      padding: 30px 0;
+    }
+    .footer a {
+      color: var(--gold);
+      margin: 0 10px;
+      transition: color 0.3s;
+    }
+    .footer a:hover { color: var(--gold-light); }
+    .footer .cont { text-decoration: none; color: var(--text-muted); margin-left: 6px; }
+
+    /* Responsive */
+
+
+    /* Tablet View */
+@media (min-width: 769px) and (max-width: 1024px) {
+  h1.section-title { font-size: 2rem; text-align: center; }
+  h2.section-title { font-size: 1.6rem; text-align: center; }
+
+  .intro {
+    padding: 60px 30px;
+  }
+
+  .about, .booking, .features {
+    padding: 40px 30px;
+  }
+
+  .about img, .booking img {
+    max-width: 300px;
+    max-height: 350px;
+  }
+
+  .btn-book {
+    padding: 14px 60px;
+    font-size: 1rem;
+  }
+
+  .price-tag {
+    width: 90%;
+    padding: 10px 20px;
+  }
+
+
+  /* Features cards */
+  .features .col-md-3 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+
+  /* Footer text alignment */
+  .footer p {
+    text-align: center;
+    display: block;
+  }
+}
+
+
+
+    @media(max-width:768px){
+      h1.section-title { text-align:center; font-size:1.8rem; }
+      h2.section-title { text-align:center; font-size:1.4rem; }
+      .intro { padding:40px 20px; }
+      .about,.booking,.features { padding:30px 20px; }
+      .btn-book { width:100%; padding:14px; }
+      .price-tag { width:80%; }
+
+        #contact p {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #contact p span {
+    display: block;
+    margin: 5px 0;
+  }
+
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="navbar navbar-expand-lg navbar-custom">
+  <div class="container" style="max-width:var(--max-width);">
+    <a class="navbar-brand" href="#">
+      <div class="logo-pill">Talk with PK</div>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon" style="filter:invert(1)"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navMenu">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#booking">Session</a></li>
+        <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- INTRO -->
+<section class="intro">
+  <div class="container" style="max-width:var(--max-width);">
+    <div class="row g-4 align-items-center">
+      <div class="col-md-6 order-2 order-md-1">
+        <h1 class="section-title">Find Your Voice. Speak English with Confidence.</h1>
+        <p>If you’ve always wanted to speak English but something has been holding you back, this is the right place for you.
+        Here, you’ll find guidance, motivation, and practical support to help you speak freely and confidently, without fear or hesitation.</p>
+      </div>
+      <div class="col-md-6 text-center order-1 order-md-2">
+        <img src="images/hero.jpg" class="img-fluid reveal" alt="Intro image">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="about">
+  <div class="container" style="max-width:var(--max-width);">
+    <div class="row g-4 align-items-center">
+      <div class="col-md-5 text-center">
+        <img src="images/img.jpg" class="img-fluid reveal" alt="Coach photo">
+      </div>
+      <div class="col-md-7">
+        <h2 class="section-title">Hi, I’m Prahalath Kannan</h2>
+        <p>
+          I’m a public speaker who’s passionate about helping people unlock their communication potential. <br><br>
+          Over the years, I’ve realized that without communication nothing works, but with it, anything is possible. <br><br>
+          I help people who struggle with English to find their voice, build their confidence, and speak clearly in any situation.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section id="booking" class="booking">
+  <div class="container" style="max-width:var(--max-width);">
+    <div class="row g-4 align-items-center">
+      <div class="col-12 d-block d-md-none order-1">
+        <h2 class="section-title text-center">1-on-1 Sessions</h2>
+      </div>
+      <div class="col-md-6 text-center order-2 order-md-2">
+        <img src="images/prah.png" class="img-fluid rounded reveal">
+      </div>
+      <div class="col-md-6 order-3 order-md-1">
+        <div class="reveal">
+          <h2 class="section-title d-none d-md-block">1-on-1 Sessions</h2>
+          <p  style="color: (--text-muted) !important;">
+            60-minute 1-on-1 sessions with techniques, mindset shifts, and practice methods to help you overcome any struggles while speaking English. Perfect for tackling issues like:
+          </p>
+          <ul style="padding-left: 1.2rem; margin-top: 0.5rem;color: var(--text-muted) !important;">
+            <li>Stuttering</li>
+            <li>Speaking continuously</li>
+            <li>Unclear speech</li>
+            <li>Going blank on the spot</li>
+            <li>Anxiety while speaking</li>
+            <li>Accent challenges</li>
+          </ul>
+          <div class="price-tag mt-3">
+          <div style="width:44px;height:44px;border-radius:10px;background:rgba(252,185,0,0.2);display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--gold)">₹</div>
+            <div>
+              <div style="font-size:0.9rem;color:var(--text-muted)">Per session</div>
+              <div style="font-weight:700;font-size:1.2rem;color:#fff;">1000</div>
+            </div>
+          </div>
+          <div>
+
+
+            <button class="btn-book mt-4">Book Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features" id="features">
+  <div class="container container-max">
+    <h2 class="section-title text-center mb-4">Features</h2>
+    <div class="row g-4">
+      <div class="col-md-3">
+        <div class="feature-card reveal">
+          <div class="feature-icon">
+            <svg fill="none" viewBox="0 0 24 24" stroke-width="1.6">
+              <path d="M7 8h10v5H9l-2 2V8z" />
+              <path d="M5 18v-2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h5>Conversation Practice</h5>
+          <p>Live speaking practice to build fluency and rhythm.</p>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="feature-card reveal">
+          <div class="feature-icon">
+            <svg fill="none" viewBox="0 0 24 24" stroke-width="1.6">
+              <rect x="9" y="2" width="6" height="10" rx="3"/>
+              <path d="M5 12a7 7 0 0 0 14 0" stroke-linecap="round"/>
+              <path d="M12 20v2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h5>Pronunciation Coaching</h5>
+          <p>Targeted drills and corrective feedback for clarity.</p>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="feature-card reveal">
+          <div class="feature-icon">
+            <svg fill="none" viewBox="0 0 24 24" stroke-width="1.6">
+              <path d="M11 5l-5 4H3v6h3l5 4V5z" />
+              <path d="M15 9a5 5 0 0 1 0 6" stroke-linecap="round"/>
+              <path d="M17.5 6.5a9 9 0 0 1 0 11" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h5>Powerful Voice</h5>
+          <p>Strengthen tone, pace, and expression to speak confidently.</p>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="feature-card reveal">
+          <div class="feature-icon">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="9" />
+              <path d="M9 10h.01M15 10h.01" />
+              <path d="M9 15c1.5 1 4.5 1 6 0" />
+            </svg>
+          </div>
+          <h5>Overcome Fear of Judgement</h5>
+          <p>Learn mindset shifts and exercises to speak confidently.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Contact Section -->
+<footer id="contact" class="footer text-center">
+  <div class="container">
+     <h2 class="section-title text-center">Contact Us</h2>
+     <p>
+       <span>Email:<a href="mailto:Talkwithpk7@gmail.com" class="cont"> Talkwithpk7@gmail.com</a></span>
+     </p>
+     <div>
+
+      <a href="https://www.instagram.com/talk_with_p.k?utm_source=qr&igsh=bnY4YnE4OHk0d3po"><i class="bi bi-instagram fs-4"></i></a>
+      <a href="https://www.linkedin.com/in/prahalath-kannan-s-a4790a283?utm_source=share_via&utm_content=profile&utm_medium=member_android"><i class="bi bi-linkedin fs-4"></i></a>
+     </div>
+  </div>
+</footer>
+
+<!-- Bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+const items=document.querySelectorAll('.reveal');
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('visible');
+      obs.unobserve(e.target)
+    }
+  })
+},{threshold:.15});
+items.forEach(i=>obs.observe(i));
+</script>
+
+</body>
+</html>
